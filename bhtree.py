@@ -94,7 +94,6 @@ class BHTree:
         """
         Return whether this node recursively contains a particle or not
         """
-        # Note: self.body will point to the first particle inserted into it even if subdivided
         return self.num_particles == 0
 
     def is_octant_unallocated(self, octant: int) -> bool:
