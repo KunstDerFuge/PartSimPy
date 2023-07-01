@@ -173,16 +173,14 @@ class BHTree:
                 # Node contains a particle and is external (contains no subnodes)
                 # Subdivide self into subnodes and insert existing particle into deeper subnode
                 existing_particle_octant = self.which_octant(self.body)
-                if self.is_octant_unallocated(existing_particle_octant):
-                    self.subnodes[existing_particle_octant] = BHTree(parent=self, octant=existing_particle_octant)
 
                 # print('Subdividing self...')
+                self.subnodes[existing_particle_octant] = BHTree(parent=self, octant=existing_particle_octant)
                 self.subnodes[existing_particle_octant].insert(self.body)
                 self.body = None
 
                 # Finally, insert the new particle into a deeper subnode
-                if self.is_octant_unallocated(octant):
-                    self.subnodes[octant] = BHTree(parent=self, octant=octant)
+                self.subnodes[octant] = BHTree(parent=self, octant=octant)
 
                 # print('Inserting into deeper subnode...')
                 self.subnodes[octant].insert(p)
