@@ -112,7 +112,6 @@ class World(ShowBase):
                 p1.calculate_force_and_accumulate(p2)
 
     def calculate_forces_BH(self, t: BHTree, theta: float):
-        print('Calculating forces...')
         for p in self.particles:
             t.insert(p)
 
