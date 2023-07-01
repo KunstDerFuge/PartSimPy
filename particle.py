@@ -54,7 +54,7 @@ class Particle:
         force = self.calculate_force(other, softening=softening)
         # print('Force: ', force)
         self.force_accum += force
-        print('Total force:', self.force_accum)
+        # print('Total force:', self.force_accum)
 
     def calculate_force(self, other: 'Particle' or BHTree, softening=25.0) -> Vector3d:
         direction: np.ndarray[float, float, float] = other.pos - self.pos
